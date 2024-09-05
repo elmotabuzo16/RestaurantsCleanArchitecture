@@ -21,12 +21,12 @@ namespace Restaurants.Infrastructure.Repositories
 
         public async Task<IEnumerable<Restaurant>> GetAllAsync()
         {
-            return await _context.Restaurants.ToListAsync();
+            return await _context.Restaurants.Include(r => r.Dishes).ToListAsync();
         }
 
         public async Task<Restaurant?> GetById(int Id)
         {
-            return await _context.Restaurants.FirstOrDefaultAsync(x => x.Id == Id);
+            return await _context.Restaurants.Include(r => r.Dishes).FirstOrDefaultAsync(x => x.Id == Id);
         }
     }
 }
