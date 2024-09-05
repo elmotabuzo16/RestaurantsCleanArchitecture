@@ -19,10 +19,14 @@ namespace Restaurants.Infrastructure.Repositories
             _context = context;
         }
 
-
         public async Task<IEnumerable<Restaurant>> GetAllAsync()
         {
             return await _context.Restaurants.ToListAsync();
+        }
+
+        public async Task<Restaurant?> GetById(int Id)
+        {
+            return await _context.Restaurants.FirstOrDefaultAsync(x => x.Id == Id);
         }
     }
 }
