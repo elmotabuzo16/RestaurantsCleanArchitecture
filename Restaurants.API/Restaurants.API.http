@@ -1,0 +1,8 @@
+@host = https://localhost
+@port = 7149
+@Restaurants.API_HostAddress = https://localhost:7149
+
+
+GET {{Restaurants.API_HostAddress}}/api/restaurants
+
+###
