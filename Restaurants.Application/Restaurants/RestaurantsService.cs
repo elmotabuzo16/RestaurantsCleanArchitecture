@@ -36,5 +36,14 @@ namespace Restaurants.Application.Restaurants
 
             return restaurantDto;
         }
+
+        public async Task<int> CreateRestaurant(CreateRestaurantDto dto)
+        {
+            var restaurant = _mapper.Map<Restaurant>(dto);
+
+            int id = await _restaurantsRepository.CreateRestaurant(restaurant);
+
+            return id;
+        }
     }
 }
