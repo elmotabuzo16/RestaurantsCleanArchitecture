@@ -6,13 +6,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Restaurants.Application.Restaurants.Validators
+namespace Restaurants.Application.Restaurants.Commands.CreateRestaurant
 {
-    public class CreateRestaurantDtoValidator : AbstractValidator<CreateRestaurantDto>
+    public class CreateRestaurantCommandValidator : AbstractValidator<CreateRestaurantCommand>
     {
         private readonly List<string> validCategories = ["Italian", "Mexican", "Japanese", "American", "Indian"];
 
-        public CreateRestaurantDtoValidator()
+        public CreateRestaurantCommandValidator()
         {
             RuleFor(dto => dto.Name)
                 .Length(3, 100);
@@ -23,15 +23,15 @@ namespace Restaurants.Application.Restaurants.Validators
             RuleFor(dto => dto.Category)
                 .Must(validCategories.Contains)
                 .WithMessage("Invalid category. Please choose from the valid categories");
-                //.Custom((value, context) =>
-                //{
-                //    var isValidCategory = validCategories.Contains(value);
+            //.Custom((value, context) =>
+            //{
+            //    var isValidCategory = validCategories.Contains(value);
 
-                //    if (!isValidCategory)
-                //    {
-                //        context.AddFailure("Category", "Invalid category. Please choose from the valid categories");
-                //    }
-                //});
+            //    if (!isValidCategory)
+            //    {
+            //        context.AddFailure("Category", "Invalid category. Please choose from the valid categories");
+            //    }
+            //});
 
             RuleFor(dto => dto.ContactEmail)
                 .EmailAddress()
@@ -41,7 +41,7 @@ namespace Restaurants.Application.Restaurants.Validators
                 .Matches(@"^\d{2}-\d{3}$")
                 .WithMessage("Please provide a valid postal code (XX-XXX).");
 
-            
+
         }
     }
 }
