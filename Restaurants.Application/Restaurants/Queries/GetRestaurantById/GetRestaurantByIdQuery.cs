@@ -16,5 +16,6 @@ namespace Restaurants.Application.Restaurants.Queries.GetRestaurantById
         }
 
         public int Id { get; }
+
     }
 }

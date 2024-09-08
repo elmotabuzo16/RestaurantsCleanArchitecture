@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Restaurants.Application.Restaurants.Commands.CreateRestaurant;
+using Restaurants.Application.Restaurants.Commands.UpdateRestaurant;
 using Restaurants.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -30,6 +31,9 @@ namespace Restaurants.Application.Restaurants.Dtos
                         PostalCode = src.PostalCode
                     }
                     ));
+
+            // For PATCH/Update
+            CreateMap<UpdateRestaurantCommand, Restaurant>();
         }
     }
 }

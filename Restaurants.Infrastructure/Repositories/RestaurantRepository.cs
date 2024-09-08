@@ -42,5 +42,11 @@ namespace Restaurants.Infrastructure.Repositories
             _context.Restaurants.Remove(entity);
             await _context.SaveChangesAsync();
         }
+
+        public async Task UpdateRestauraunt(Restaurant entity)
+        {
+            _context.Restaurants.Update(entity);
+            await _context.SaveChangesAsync();
+        }
     }
 }
