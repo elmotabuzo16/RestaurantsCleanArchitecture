@@ -2,6 +2,7 @@ using Restaurants.Infrastructure.Persistence;
 using Restaurants.Infrastructure.Extensions;
 using Restaurants.Infrastructure.Seeders;
 using Restaurants.Application.Extensions;
+using Restaurants.API.Middlewares;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +13,9 @@ builder.Services.AddControllers();
 
 /// Swagger
 builder.Services.AddSwaggerGen();
+
+/// Global Exception Handling
+builder.Services.AddScoped<ErrorHandlingMiddleware>();
 
 /// This is for db connection
 builder.Services.AddInfrastructure(builder.Configuration);
@@ -25,6 +29,9 @@ var seeder = scope.ServiceProvider.GetRequiredService<IRestaurantSeeder>();
 await seeder.Seed();
 
 // Configure the HTTP request pipeline.
+
+/// Global exception handling is always the first in middleware pipeline
+app.UseMiddleware<ErrorHandlingMiddleware>();
 
 if (app.Environment.IsDevelopment())
 {
