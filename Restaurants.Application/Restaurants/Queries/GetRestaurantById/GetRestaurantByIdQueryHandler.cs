@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using MediatR;
 using Restaurants.Application.Restaurants.Dtos;
+using Restaurants.Domain.Entities;
+using Restaurants.Domain.Exceptions;
 using Restaurants.Domain.Repositories;
 using System;
 using System.Collections.Generic;
@@ -10,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Restaurants.Application.Restaurants.Queries.GetRestaurantById
 {
-    public class GetRestaurantByIdQueryHandler : IRequestHandler<GetRestaurantByIdQuery, RestaurantDto?>
+    public class GetRestaurantByIdQueryHandler : IRequestHandler<GetRestaurantByIdQuery, RestaurantDto>
     {
         private readonly IRestaurantsRepository _restaurantsRepository;
         private readonly IMapper _mapper;
@@ -21,9 +23,11 @@ namespace Restaurants.Application.Restaurants.Queries.GetRestaurantById
             _mapper = mapper;
         }
 
-        public async Task<RestaurantDto?> Handle(GetRestaurantByIdQuery request, CancellationToken cancellationToken)
+        public async Task<RestaurantDto> Handle(GetRestaurantByIdQuery request, CancellationToken cancellationToken)
         {
-            var restaurant = await _restaurantsRepository.GetById(request.Id);
+            var restaurant = await _restaurantsRepository.GetById(request.Id)
+                ?? throw new NotFoundException(nameof(Restaurant), request.Id.ToString());
+
             var restaurantDto = _mapper.Map<RestaurantDto>(restaurant);
 
             return restaurantDto;
