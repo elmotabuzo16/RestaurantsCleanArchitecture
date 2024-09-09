@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using Restaurants.Application.Dishes.Dtos;
 using Restaurants.Domain.Entities;
 using Restaurants.Domain.Exceptions;
 using Restaurants.Domain.Repositories;
@@ -9,34 +10,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Restaurants.Application.Dishes.Commands.CreateDish
+namespace Restaurants.Application.Dishes.Queries.GetDishesForRestaurant
 {
-    public class CreateDishCommandHandler : IRequestHandler<CreateDishCommand>
+    public class GetAllDishesForRestaurantQueryHandler : IRequestHandler<GetAllDishesForRestaurantQuery, IEnumerable<DishDto>>
     {
         private readonly IRestaurantsRepository _restaurantsRepository;
         private readonly IMapper _mapper;
         private readonly IDishesRepository _dishesRepository;
 
-        public CreateDishCommandHandler(IRestaurantsRepository restaurantsRepository, IMapper mapper, IDishesRepository dishesRepository)
+        public GetAllDishesForRestaurantQueryHandler(IRestaurantsRepository restaurantsRepository, IMapper mapper, IDishesRepository dishesRepository)
         {
             _restaurantsRepository = restaurantsRepository;
             _mapper = mapper;
             _dishesRepository = dishesRepository;
         }
 
-
-        public async Task Handle(CreateDishCommand request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<DishDto>> Handle(GetAllDishesForRestaurantQuery request, CancellationToken cancellationToken)
         {
             var restaurant = await _restaurantsRepository.GetById(request.RestaurantId);
 
             if (restaurant == null)
             {
-                throw new NotFoundException(nameof(Dish), request.RestaurantId.ToString());
+                throw new NotFoundException(nameof(Restaurant), request.RestaurantId.ToString());
             }
 
-            var dish = _mapper.Map<Dish>(request);
+            var result = _mapper.Map<IEnumerable<DishDto>>(restaurant.Dishes);
 
-            await _dishesRepository.Create(dish);
+            return result;
         }
     }
 }

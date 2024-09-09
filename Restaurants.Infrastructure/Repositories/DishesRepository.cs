@@ -1,4 +1,5 @@
-﻿using Restaurants.Domain.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using Restaurants.Domain.Entities;
 using Restaurants.Domain.Repositories;
 using Restaurants.Infrastructure.Persistence;
 using System;
@@ -16,6 +17,11 @@ namespace Restaurants.Infrastructure.Repositories
         public DishesRepository(RestaurantsDbContext context)
         {
             _context = context;
+        }
+
+        public async Task<Dish?> GetById(int Id)
+        {
+            return await _context.Dishes.FirstOrDefaultAsync(x => x.Id == Id);
         }
 
         public async Task<int> Create(Dish entity)
