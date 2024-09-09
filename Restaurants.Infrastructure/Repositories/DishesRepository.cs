@@ -19,17 +19,18 @@ namespace Restaurants.Infrastructure.Repositories
             _context = context;
         }
 
-        public async Task<Dish?> GetById(int Id)
-        {
-            return await _context.Dishes.FirstOrDefaultAsync(x => x.Id == Id);
-        }
-
         public async Task<int> Create(Dish entity)
         {
             await _context.Dishes.AddAsync(entity);
             await _context.SaveChangesAsync();
 
             return entity.Id;
+        }
+
+        public async Task DeleteAll(IEnumerable<Dish> entity)
+        {
+            _context.Dishes.RemoveRange(entity);
+            await _context.SaveChangesAsync();
         }
     }
 }

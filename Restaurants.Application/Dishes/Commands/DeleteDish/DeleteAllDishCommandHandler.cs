@@ -9,34 +9,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Restaurants.Application.Dishes.Commands.CreateDish
+namespace Restaurants.Application.Dishes.Commands.DeleteDish
 {
-    public class CreateDishCommandHandler : IRequestHandler<CreateDishCommand, int>
+    public class DeleteAllDishCommandHandler : IRequestHandler<DeleteAllDishCommand>
     {
         private readonly IRestaurantsRepository _restaurantsRepository;
         private readonly IMapper _mapper;
         private readonly IDishesRepository _dishesRepository;
 
-        public CreateDishCommandHandler(IRestaurantsRepository restaurantsRepository, IMapper mapper, IDishesRepository dishesRepository)
+        public DeleteAllDishCommandHandler(IRestaurantsRepository restaurantsRepository, IMapper mapper, IDishesRepository dishesRepository)
         {
             _restaurantsRepository = restaurantsRepository;
             _mapper = mapper;
             _dishesRepository = dishesRepository;
         }
-
-
-        public async Task<int> Handle(CreateDishCommand request, CancellationToken cancellationToken)
+        public async Task Handle(DeleteAllDishCommand request, CancellationToken cancellationToken)
         {
             var restaurant = await _restaurantsRepository.GetById(request.RestaurantId);
 
             if (restaurant == null)
             {
-                throw new NotFoundException(nameof(Dish), request.RestaurantId.ToString());
+                throw new NotFoundException(nameof(Restaurant), request.RestaurantId.ToString());
             }
 
-            var dish = _mapper.Map<Dish>(request);
-
-            return await _dishesRepository.Create(dish);
+            await _dishesRepository.DeleteAll(restaurant.Dishes);
         }
     }
 }
