@@ -16,7 +16,7 @@ namespace Restaurants.Application.Restaurants.Commands.CreateRestaurant
 
         public string? ContactEmail { get; set; }
         public string? ContactNumber { get; set; }
-
+        
         // Address
         public string? City { get; set; }
         public string? Street { get; set; }

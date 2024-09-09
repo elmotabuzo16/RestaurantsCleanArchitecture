@@ -7,7 +7,7 @@ GET {{Restaurants.API_HostAddress}}/api/restaurants
 
 ###
 
-GET {{Restaurants.API_HostAddress}}/api/restaurants/3
+GET {{Restaurants.API_HostAddress}}/api/restaurants/2
 
 ###
 POST {{Restaurants.API_HostAddress}}/api/restaurants
@@ -38,6 +38,17 @@ Content-Type: application/json
   "Name": "Rest Delights",
   "Description": "A Sweet experience like no other",
   "Category": "Italian"
+}
+
+###
+
+POST {{Restaurants.API_HostAddress}}/api/restaurant/3/dishes
+Content-Type: application/json
+
+{
+ "Name": "Sample Dish",
+ "Description": "Sample Description",
+ "Price": "-3"
 }
 
 ###
