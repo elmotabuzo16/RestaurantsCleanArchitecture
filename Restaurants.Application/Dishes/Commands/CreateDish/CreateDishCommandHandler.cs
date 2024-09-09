@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Restaurants.Application.Dishes.CreateDish
+namespace Restaurants.Application.Dishes.Commands.CreateDish
 {
     public class CreateDishCommandHandler : IRequestHandler<CreateDishCommand>
     {

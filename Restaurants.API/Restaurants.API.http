@@ -42,13 +42,13 @@ Content-Type: application/json
 
 ###
 
-POST {{Restaurants.API_HostAddress}}/api/restaurant/3/dishes
+POST {{Restaurants.API_HostAddress}}/api/restaurant/2/dishes
 Content-Type: application/json
 
 {
  "Name": "Sample Dish",
  "Description": "Sample Description",
- "Price": "-3"
+ "Price": "1"
 }
 
 ###

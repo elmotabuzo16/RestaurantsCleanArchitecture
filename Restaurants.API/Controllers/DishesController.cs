@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Restaurants.Application.Dishes.CreateDish;
+using Restaurants.Application.Dishes.Commands.CreateDish;
 
 namespace Restaurants.API.Controllers
 {
