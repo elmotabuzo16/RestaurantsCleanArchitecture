@@ -2,10 +2,12 @@
 using FluentValidation.AspNetCore;
 using Microsoft.Extensions.DependencyInjection;
 using Restaurants.Application.Restaurants;
+using Restaurants.Application.Users;
 using Restaurants.Domain.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -20,6 +22,11 @@ namespace Restaurants.Application.Extensions
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(applicationAssembly));
             services.AddAutoMapper(applicationAssembly);
             services.AddValidatorsFromAssembly(applicationAssembly).AddFluentValidationAutoValidation();
+
+            services.AddScoped<IUserContext, UserContext>();
+
+            // This is for IHttpContextAccessor
+            services.AddHttpContextAccessor();
         }
     }
 }

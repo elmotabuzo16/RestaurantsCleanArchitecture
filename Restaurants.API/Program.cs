@@ -3,19 +3,14 @@ using Restaurants.Infrastructure.Extensions;
 using Restaurants.Infrastructure.Seeders;
 using Restaurants.Application.Extensions;
 using Restaurants.API.Middlewares;
+using Restaurants.Domain.Entities;
+using Microsoft.OpenApi.Models;
+using Restaurants.API.Extensions;
 
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
-builder.Services.AddControllers();
-
-/// Swagger
-builder.Services.AddSwaggerGen();
-
-/// Global Exception Handling
-builder.Services.AddScoped<ErrorHandlingMiddleware>();
+builder.AddPresentation();
 
 /// This is for db connection
 builder.Services.AddInfrastructure(builder.Configuration);
@@ -40,6 +35,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.MapGroup("api/identity").MapIdentityApi<User>();
 
 app.UseAuthorization();
 

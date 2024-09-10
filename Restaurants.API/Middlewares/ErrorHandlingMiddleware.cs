@@ -16,10 +16,10 @@ namespace Restaurants.API.Middlewares
                 context.Response.StatusCode = 404;
                 await context.Response.WriteAsync(notFound.Message);
             }
-            catch
+            catch (Exception ex)
             {
                 context.Response.StatusCode = 500;
-                await context.Response.WriteAsync("Something went wrong");
+                await context.Response.WriteAsync("Something went wrong. " + ex.Message);
             }
         }
     }
