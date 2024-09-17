@@ -1,7 +1,7 @@
 @host = https://localhost
 @port = 7149
 @Restaurants.API_HostAddress = https://localhost:7149
-@token = CfDJ8DFRKF6ibBBCqWm4AJ29De9bBC1kZcpscYiyIk6UYdtWnqSf-jWI4abLi_It356B1GSjxyKsZpnIDZSkxSdLXD0Viu3u9XBA8mKbaXo_BssL0mMB4P5Itd0UrQaFS2GIwKCRl_aRDFGbZ0Vu-gJ5frtGzWuehcXu5Cy43dHLtNGaQKiiCODPJnW8HCtDkKscfqMmqcyb9tDLmPiwb_ltuOGKSgGMcWOZdsIG08hCqKiQO9RNNx83I0JnuDWQXFALbzlG46L4nF8XLhPhKRbOF2ZHTTdvYFMpi4z3hA5ytS70eIUe5-efihBQzJ1fnCvKEFKU3YnFsoMvxc-X21XQlCaslFboN_-bl-RMSs4XfiSRDLNizqzC3Q3jso3UltG84CVKxrnnRiYtxmxhkoXViAFpxexmAhEWczjjQBRfi6JNwLZmu885SWhy3S0zmsGuesbDM-2B_xI9Yi3DGxkqyYdmTJq9-GC_Itg_uKFRaGIWGRcmgRAQRjjNQcGkz5qP92y-5rgy7rEJd5AnJUy9I7tD2q61FmO99ZTXTjsJXCToYQ25kBW2_oDHA0jgOozaQJn2TjmoRuWCibOKZqhsYE4H6dhKu9tWFdx2oAAfTixYQ9D-mcyu6XrXPVqgcLhUBBSrzYUisaao4-4nVRkemwcHlt3o3DkI4rHX_39NTSkl7Qo5CVimSS0GPRDs3i7E6g
+@token = CfDJ8DFRKF6ibBBCqWm4AJ29De-EAzjHWGsmudhkG_p4f-7eFNlp-8rq3uSrYOz7JK_suZS0VjD3JUv2lulNo4XQlrVzzwW1ZjJ9SPJWqcnOVmNWmJwAs31fdLc-cu6vRCEPCsHWLlTOATMV4fL0GRDmt5Mu6Vgt52c9rr_nBynuo41x8hFcDXb0_Qc_zyNEY9H83TI7ZWHXI7zuztMaw2AqRBPpLKMSx_DNQLiNK7RLy_qY2e3eH0cTnCT6WIpTKE3pOHPuQ0svBVUAEWe_7NU87qJ-Z8YmEEx-wMBXCCYCGsTb8q7fDFUkQ0h4NiI4ZarVil1zY1pikjWibgaXmCdmkiFbxzSbEYoE8ppZT-p9mhMV_wcnQtrNj39lREQVFHGHlDT1km_QgwJwxdyT3lT489WLKxajs1iOOydapRW8bt8XHLFUV_pYECT8wsLLTTHmaBgiKTMLAOrUPw_jxcuQLkv7VudYA0MVGxo7xHoXJLM3w8vnm_rGPH9vFrWJMxxiBA1SQ5Sx_1siGL_TlKKULd7rIVKVzRYq_bMIKQMJQf5h4uod04Wr0ttbuVxDr_XZ3_B0Z6GMIXwWte85d5xkkt-KEPlkPCll5xI6jcrEpFGE4Uy461HYIqugFjGsgQusypKD1ybPE6uP4nctYoCaba9855WzR47YFh9SWU6bf53R80Mm6hlC3JzzBdYTu00kK7VTV-SzV_NGEst42VNGgmYdGbTXHRhWciJFAaavfy9XdmxuV-6coSMFcNzMYHsMBusWpB7sbHGc6wT2U2Qd3GZY_VHdwcQ-HFOG-IncJC1e
 
 GET {{Restaurants.API_HostAddress}}/api/restaurants
 Authorization: Bearer {{token}}
@@ -78,7 +78,7 @@ POST {{Restaurants.API_HostAddress}}/api/identity/login
 Content-Type: application/json
 
 {
-  "email": "test@test.com",
+  "email": "admin@test.com",
   "password": "Password1!"
 }
 
@@ -93,3 +93,14 @@ Content-Type: application/json
 }
 
 ### 
+
+POST {{Restaurants.API_HostAddress}}/api/identity/userRole
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "UserEmail": "user@test.com",
+  "RoleName": "User"
+}
+
+###

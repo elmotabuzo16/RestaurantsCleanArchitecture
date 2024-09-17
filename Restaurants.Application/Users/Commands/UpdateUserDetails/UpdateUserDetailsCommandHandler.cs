@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Restaurants.Application.Users.Commands
+namespace Restaurants.Application.Users.Commands.UpdateUserDetailsComand
 {
     public class UpdateUserDetailsCommandHandler : IRequestHandler<UpdateUserDetailsCommand>
     {
@@ -25,7 +25,7 @@ namespace Restaurants.Application.Users.Commands
         {
             var user = _userContext.GetCurrentUser();
             var dbUser = await _userStore.FindByIdAsync(user!._id, cancellationToken);
-            
+
             if (dbUser == null)
             {
                 throw new NotFoundException(nameof(User), user!._id);
