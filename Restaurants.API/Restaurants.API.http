@@ -81,3 +81,15 @@ Content-Type: application/json
   "email": "test@test.com",
   "password": "Password1!"
 }
+
+###
+
+POST {{Restaurants.API_HostAddress}}/api/identity/register
+Content-Type: application/json
+
+{
+  "email": "owner@test.com",
+  "password": "Password1!"
+}
+
+### 
