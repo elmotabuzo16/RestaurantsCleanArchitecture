@@ -1,8 +1,8 @@
 @host = https://localhost
 @port = 7149
 @Restaurants.API_HostAddress = https://localhost:7149
-@token = CfDJ8DFRKF6ibBBCqWm4AJ29De-v-NydC6UmjkfJMDq6ZUhs8PUvcSqos1aT2cllrMhg9DVFb_fLVMaMaWRD7QO64D-wLiV-WU3K402jYMQlx3Xa0In5lIPjB50aKQvTb801-FDptMCm6_A2Z-QazbyAZmZN1VWtx1aftFxYicxvihOyBdfUjMCjcNDzIzHHc2Xz9prG-P3Rj6zJt7bQOwbcfhd5XVR-tpMm78T8IMLUViwBPwN24pFg6hbMACv--U4-ptj_O1xnPUWKhWWdA0q0wlpJVGsybBI5uoK5PpKAjOEAyTOI9_IQ9pVDZC7j9h0W680DfO7Yvj3k17xGY92FUylyMEXqEsUzfS7HLF1oVc45nWLG3fT25mahzZelMyxOISeDLMKUlum3jKG2WbUMfAdQl6-hduJbRFAtdoX6IRy3R_V277Rrmz_eMnAz3Z2IIS1zvsKrrGaMzSG0QdkeXyFrK08mQ4hckUGa2W7oa1s4CF6E85692ieEjlBPuzzRHFVrs50SdORz_oKphKLsHUblF2SoTOahT0FIZM6x-Vthzb5uWKvO9Ept9sZkzwV0i2xttRnw1XomaR80Zxgw1rlAcx5iDkQa5cBzSX4y10Rz-GyN0Grf83E5KpF-2uMAYx3zoj3OuvGV0toaj6r7oNMX5yyOYwt221-uU8zFia6FlmonGbFb_dQd_ZeXhiJgoU1eU2MzNO7_01Q3pNe-TcoMHQ_F9DvYI2z2vdV45Tij6R3UHTdMeBpO7mGTHfEhB7K_amlW8QeG8Iw7kx0MD3zPgITSu87O9wvpWegDmPzwIirxdCpVX6JcU2ywSfnYRHzg4VE41XcCBLw5-3kNwaDpOnL9jCNA1tF7ysbT7EMZ
-
+@token = CfDJ8DFRKF6ibBBCqWm4AJ29De9H9QDThl4VIQZ_oX_1PlMneVLcHZvIGuHEsihPe77bHwxFwCDzu8HdKkYoEXDVTpRuij6NbNnmHJY3amWfXIzj1w198vT6tZ4XntIuAbQQYp1_a-Nnxi7BFcE1o2pRi4Jx1AT1zPLWy0gCS5L_R2-9cZhSRAxnaPK5FjAWWchgDdB8mAQnJoyLeTntCrTlQsrbTpQa727OxOGG_rArFhBpwvs-7g7R-uHQaLKjwtjkP6mD55GuJd4tyGmWbywZC162mM_BKyzQUDNRhQwn9JcelZaHymMTU1XSnteLc5_T4A41cke9j8BDDZwMXX5hBo1m34xwZrB6czxTMi7VP5C8A33t1aNwg11vtAZu2MMgyvmcvndNFufgzcEDCCsdClEgMjO4C5-lWih_qqTxyURwD_tlThwO-hX_VsIuSF4i1mUhSy8rCNZXTYaGLjXwV6RguzwMOMjIKrJsD8SXQiay3l2JX-QyiDbn4Ef90D9axbVg_Cpxdr-VWpi2W0LHAftmvTXz0GjKrG6YtkWH_HDBxv6MZeQgOBhBHCM_MxF4ZNFjz_Ls-x7FcwDqyJKeSLY2D7IdUskc-C-OSuGtE6ek8X9XI2IVxahieRNvDCxW8x2gkYx-sQ3j9HhxBnIgac0OdfxLobXonoQVIlToIiWv-6H1y9FDPOQjcuzZueIs8OmV2_fG97IIBm9Yv3IwWW7ezXZjMbOKvRWsG3mwuBuVadn-GkIGAwSFKXJ7rOWVQjG2YZGLXX0TpcvJqH-49IVdT6AI4X-IiqdZ7NPJSqAH9cJHhP4VDyryqUW3ThKTrFOtP2RvgH3-zzaGnRjl5POKc7d3TWJ2yNSoyGpmqCsw
+@tokenOwner = CfDJ8DFRKF6ibBBCqWm4AJ29De9nOTJ3dr_L8HyRunbQg56ajJ0iyMSYD60CpnYSTGMU85B2pi6AoTsOi6bjJ1_1nva_6PHJOcvSGxObb1VkviNLaTuJ23XOfKaLq3BeUEScB-zHB_zBhRDXWzc-LfQEthEg1cZS_PFDMKwWW66f2yhfXPX9thcovuyCZiUOJ_IL1PmKMTQuDAlV6s2S3ZglAf31jxUpSdV4slZGCMlHvjVYoS_DKAaPztgi7u7xg1ml_w4AP_0HQkm0-QnVIdTZYSAsGoj7z9K7SO8xBzMzBFwEheehoXyFqlOJQ2KXkEUcRf9KIQ9TS9UfQTpjkyDy5VYuJhzHhlKdvYpkTTUrAz_x26hNSqVfz9Be-bIvQBT-wqFntL-GtGp2e1q6ZIEIq737oV9eQsqoeuC5qK6QrMEROWz4rGntleV-lT1VS6dwrMnoNIxvTZiTw_38xf1vd80-g8A5y6tux2BIWQzJX3tF23cdW9IwbpfFv8xgabaSFRNNsTQU-yI3rQLCoI3w2my5zRQ0hfRk2gkQMhTbk7tFBBcCZCApjUzEvio-htDP7yS_MW2PGwlwzebWlFkjzsl7AB396MyOf0eLxqlJQNI3cIeGNYOuGCv0KmMO5qzC8Xqnmyv3ePRdsbG3BNWNXvyy14lXbAwvtQN9Tw1BoHIP4P7eInORGvqTQSrM50y15X8P7AVYjFi8enw3sDeNBmmI3O19G3pDmXBKHBH3Pij0AEnGdKG0maxhqahMx4opSiBpFc-m0iMAgjfO1B7kqSCcJpK9M0Ewwk3TrsjAJ_BMnsU9ziuhCrOZUlBDla9Jw9LgqaBRgHHW7y7h4LXEEs3xLd1Y-eIxP5_7ohSw5ICJMxcH5feNQiRilcaS0hF01A
 GET {{Restaurants.API_HostAddress}}/api/restaurants
 Authorization: Bearer {{token}}
 ###
@@ -18,7 +18,7 @@ Authorization: Bearer {{token}}
 ###
 
 GET {{Restaurants.API_HostAddress}}/api/restaurants/2
-Authorization: Bearer {{token}}
+
 ###
 POST {{Restaurants.API_HostAddress}}/api/restaurants
 Content-Type: application/json
@@ -63,8 +63,8 @@ Content-Type: application/json
 
 ###
 
-GET {{Restaurants.API_HostAddress}}/api/restaurant/3/dishes
-
+GET {{Restaurants.API_HostAddress}}/api/restaurant/1/dishes
+Authorization: Bearer {{token}}
 ###
 
 GET {{Restaurants.API_HostAddress}}/api/restaurant/3/dishes/4
@@ -83,6 +83,16 @@ Content-Type: application/json
 }
 
 ### 
+
+POST {{Restaurants.API_HostAddress}}/api/identity/login
+Content-Type: application/json
+
+{
+  "email": "owner@test.com",
+  "password": "Password1!"
+}
+
+###
 
 POST {{Restaurants.API_HostAddress}}/api/identity/login
 Content-Type: application/json
@@ -111,6 +121,17 @@ Authorization: Bearer {{token}}
 {
   "UserEmail": "user@test.com",
   "RoleName": "User"
+}
+
+###
+
+PATCH {{Restaurants.API_HostAddress}}/api/identity/user
+Content-Type: application/json
+Authorization: Bearer {{tokenOwner}}
+
+{
+  "DateOfBirth": "1996-11-10",
+  "Nationality": "German"
 }
 
 ###

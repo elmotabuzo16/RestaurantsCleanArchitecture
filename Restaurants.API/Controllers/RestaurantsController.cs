@@ -27,7 +27,7 @@ namespace Restaurants.API.Controllers
 
         
         [HttpGet]
-        [AllowAnonymous]
+        [Authorize(Policy = PolicyNames.HasNationality)]
         public async Task<IActionResult> GetAll([FromQuery] GetAllRestaurantsQuery query)
         {
             var restaurants = await _mediator.Send(query);
@@ -36,7 +36,6 @@ namespace Restaurants.API.Controllers
         }
 
         [HttpGet("{Id}")]
-        [Authorize(Policy = PolicyNames.HasNationality)]
         public async Task<IActionResult> GetById([FromRoute]int Id)
         {
 
