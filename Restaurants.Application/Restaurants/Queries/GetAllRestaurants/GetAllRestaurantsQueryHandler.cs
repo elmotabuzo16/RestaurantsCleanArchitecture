@@ -25,7 +25,7 @@ namespace Restaurants.Application.Restaurants.Queries.GetAllRestaurants
         public async Task<PageResult<RestaurantDto>> Handle(GetAllRestaurantsQuery request, CancellationToken cancellationToken)
         {
             var (restaurants, totalCount) = await _restaurantsRepository.GetAllMatchingAsync(request.SearchPhrase,
-                request.PageSize, request.PageNumber);
+                request.PageSize, request.PageNumber, request.SortBy, request.SortDirection);
             var restaurantsDto = _mapper.Map<IEnumerable<RestaurantDto>>(restaurants);
 
             var result = new PageResult<RestaurantDto>(restaurantsDto, totalCount, request.PageSize, request.PageNumber);
