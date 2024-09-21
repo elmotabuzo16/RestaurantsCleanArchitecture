@@ -12,7 +12,7 @@ namespace Restaurants.Infrastructure.Repositories
 {
     public class RestaurantRepository : IRestaurantsRepository
     {
-        private RestaurantsDbContext _context { get; }
+        private readonly RestaurantsDbContext _context;
 
         public RestaurantRepository(RestaurantsDbContext context)
         {
@@ -22,6 +22,26 @@ namespace Restaurants.Infrastructure.Repositories
         public async Task<IEnumerable<Restaurant>> GetAllAsync()
         {
             return await _context.Restaurants.Include(r => r.Dishes).ToListAsync();
+        }
+
+        public async Task<(IEnumerable<Restaurant>, int)> GetAllMatchingAsync(string? searchPhrase, int pageSize, int pageNumber)
+        {
+            var searchPhraseLower = searchPhrase?.ToLower();
+
+            var baseQuery = _context
+            .Restaurants
+            .Where(r => searchPhraseLower == null || (r.Name.ToLower().Contains(searchPhraseLower)
+                                                   || r.Description.ToLower().Contains(searchPhraseLower)));
+
+
+            var totalCount = await baseQuery.CountAsync();
+
+            var restaurants = await baseQuery
+                .Skip(pageSize * (pageNumber - 1))
+                .Take(pageSize)
+                .ToListAsync();
+
+            return (restaurants, totalCount);
         }
 
         public async Task<Restaurant?> GetById(int Id)

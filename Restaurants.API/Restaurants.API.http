@@ -7,6 +7,11 @@ GET {{Restaurants.API_HostAddress}}/api/restaurants
 Authorization: Bearer {{token}}
 ###
 
+GET {{Restaurants.API_HostAddress}}/api/restaurants?searchPhrase=&pageSize=10000&pageNumber=1
+Authorization: Bearer {{token}}
+
+###
+
 GET {{Restaurants.API_HostAddress}}/api/restaurants/2
 Authorization: Bearer {{token}}
 ###
