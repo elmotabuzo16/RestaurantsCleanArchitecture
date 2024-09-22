@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
+using Restaurants.Domain.Interfaces;
+using Restaurants.Domain.Constants;
 using Restaurants.Domain.Entities;
 using Restaurants.Domain.Exceptions;
 using Restaurants.Domain.Repositories;
@@ -16,12 +18,14 @@ namespace Restaurants.Application.Dishes.Commands.DeleteDish
         private readonly IRestaurantsRepository _restaurantsRepository;
         private readonly IMapper _mapper;
         private readonly IDishesRepository _dishesRepository;
+        private readonly IRestaurantAuthorizationService _restaurantAuthorizationService;
 
-        public DeleteAllDishCommandHandler(IRestaurantsRepository restaurantsRepository, IMapper mapper, IDishesRepository dishesRepository)
+        public DeleteAllDishCommandHandler(IRestaurantsRepository restaurantsRepository, IMapper mapper, IDishesRepository dishesRepository, IRestaurantAuthorizationService restaurantAuthorizationService)
         {
             _restaurantsRepository = restaurantsRepository;
             _mapper = mapper;
             _dishesRepository = dishesRepository;
+            _restaurantAuthorizationService = restaurantAuthorizationService;
         }
         public async Task Handle(DeleteAllDishCommand request, CancellationToken cancellationToken)
         {
@@ -31,6 +35,12 @@ namespace Restaurants.Application.Dishes.Commands.DeleteDish
             {
                 throw new NotFoundException(nameof(Restaurant), request.RestaurantId.ToString());
             }
+
+            if (!_restaurantAuthorizationService.Authorize(restaurant, ResourceOperation.Delete))
+            {
+                throw new ForbidException();
+            }
+
 
             await _dishesRepository.DeleteAll(restaurant.Dishes);
         }

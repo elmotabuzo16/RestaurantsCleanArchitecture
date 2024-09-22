@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
+using Restaurants.Domain.Interfaces;
+using Restaurants.Domain.Constants;
 using Restaurants.Domain.Entities;
 using Restaurants.Domain.Exceptions;
 using Restaurants.Domain.Repositories;
@@ -16,12 +18,14 @@ namespace Restaurants.Application.Dishes.Commands.CreateDish
         private readonly IRestaurantsRepository _restaurantsRepository;
         private readonly IMapper _mapper;
         private readonly IDishesRepository _dishesRepository;
+        private readonly IRestaurantAuthorizationService _restaurantAuthorizationService;
 
-        public CreateDishCommandHandler(IRestaurantsRepository restaurantsRepository, IMapper mapper, IDishesRepository dishesRepository)
+        public CreateDishCommandHandler(IRestaurantsRepository restaurantsRepository, IMapper mapper, IDishesRepository dishesRepository, IRestaurantAuthorizationService restaurantAuthorizationService)
         {
             _restaurantsRepository = restaurantsRepository;
             _mapper = mapper;
             _dishesRepository = dishesRepository;
+            _restaurantAuthorizationService = restaurantAuthorizationService;
         }
 
 
@@ -32,6 +36,11 @@ namespace Restaurants.Application.Dishes.Commands.CreateDish
             if (restaurant == null)
             {
                 throw new NotFoundException(nameof(Dish), request.RestaurantId.ToString());
+            }
+
+            if (!_restaurantAuthorizationService.Authorize(restaurant, ResourceOperation.Update))
+            {
+                throw new ForbidException();
             }
 
             var dish = _mapper.Map<Dish>(request);
