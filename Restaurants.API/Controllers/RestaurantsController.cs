@@ -27,7 +27,7 @@ namespace Restaurants.API.Controllers
 
         
         [HttpGet]
-        [Authorize(Policy = PolicyNames.HasNationality)]
+        [Authorize(Policy = PolicyNames.CreatedAtleast2Restaurants)]
         public async Task<IActionResult> GetAll([FromQuery] GetAllRestaurantsQuery query)
         {
             var restaurants = await _mediator.Send(query);
