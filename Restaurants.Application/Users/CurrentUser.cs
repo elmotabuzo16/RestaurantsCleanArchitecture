@@ -8,8 +8,6 @@ namespace Restaurants.Application.Users
 {
     public class CurrentUser
     {
-         
-
         public CurrentUser(string Id, string email, IEnumerable<string> roles, string? nationality, DateOnly? dateOfBirth)
         {
             _id = Id;
